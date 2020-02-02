@@ -1,0 +1,19 @@
+
+func change(money: Int) -> Int {
+    var count: Int = 0
+    for i in 0...10 {
+        for j in 0...2 {
+            for k in 0...15 {
+                for l in 0...15 {
+                    if 100 * i + 500 * j + 50 * k + 10 * l == money && i + j + k + l <= 15 {
+                        count += 1
+                    }
+                }
+            }
+        }
+    }
+    return count
+}
+
+change(money: 1000) // 20
+
