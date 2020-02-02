@@ -1,0 +1,21 @@
+
+var arr: Array<Bool> = Array(repeating: false, count: 101)
+
+for i in 2...100 {
+    for j in 1...100/i {
+        if arr[j * i] == false {
+            arr[j * i] = true
+        } else {
+            arr[j * i] = false
+        }
+    }
+}
+
+for k in 1...100 {
+    if arr[k] == false {
+        print(k)
+    }
+}
+
+// 1, 4, 9, 16, 25, 36, 49, 64, 81, 100
+
