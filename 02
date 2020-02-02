@@ -10,22 +10,29 @@ for i in 1000...9999 {
     //case one, multiply once
     if first * (second * 100 + third * 10 + fourth) == rev {
         result.append(i)
+        break
     } else if (first * 10 + second) * (third * 10 + fourth) == rev {
         result.append(i)
+        break
     } else if (first * 100 + second * 10 + third) * fourth == rev {
         result.append(i)
+        break
     }
     //case two, multiply twice
     if first * second * (third * 10 + fourth) == rev {
         result.append(i)
+        break
     } else if first * (second * 10 + third) * fourth == rev {
         result.append(i)
+        break
     } else if (first * 10 + second) * third * fourth == rev {
         result.append(i)
+        break
     }
     //case three, multiply three times
     if first * second * third * fourth == rev {
         result.append(i)
+        break
     }
 }
 
