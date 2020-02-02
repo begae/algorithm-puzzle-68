@@ -1,0 +1,15 @@
+
+var num: Int = 11
+
+while true {
+    let numstr = Array(String(num))
+    let binary = Array(String(num, radix: 2))
+    let octa = Array(String(num, radix: 8))
+    if numstr == numstr.reversed() && binary == binary.reversed() && octa == octa.reversed() {
+    print(num)
+    break
+    } else {
+    num += 2
+    }
+}
+
