@@ -1,0 +1,33 @@
+
+var result: Array<Int> = []
+
+for i in 1000...9999 {
+    let first: Int = i / 1000
+    let second: Int = (i - first * 1000) / 100
+    let third: Int = (i - first * 1000 - second * 100) / 10
+    let fourth: Int = (i - first * 1000 - second * 100 - third * 10)
+    let rev: Int = fourth * 1000 + third * 100 + second * 10 + first
+    //case one, multiply once
+    if first * (second * 100 + third * 10 + fourth) == rev {
+        result.append(i)
+    } else if (first * 10 + second) * (third * 10 + fourth) == rev {
+        result.append(i)
+    } else if (first * 100 + second * 10 + third) * fourth == rev {
+        result.append(i)
+    }
+    //case two, multiply twice
+    if first * second * (third * 10 + fourth) == rev {
+        result.append(i)
+    } else if first * (second * 10 + third) * fourth == rev {
+        result.append(i)
+    } else if (first * 10 + second) * third * fourth == rev {
+        result.append(i)
+    }
+    //case three, multiply three times
+    if first * second * third * fourth == rev {
+        result.append(i)
+    }
+}
+
+print(result) // [5931]
+
