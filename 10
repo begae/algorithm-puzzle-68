@@ -1,0 +1,55 @@
+
+let european: [Int] = [0, 32, 15, 19, 4, 21, 2, 25, 17, 34, 6, 27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33, 1, 20, 14, 31, 9, 22, 18, 29, 7, 28, 12, 35, 3, 26]
+let american: [Int] = [0, 28, 9, 26, 30, 11, 7, 20, 32, 17, 5, 22, 34, 15, 3, 24, 36, 13, 1, 0, 27, 10, 25, 29, 12, 8, 19, 31, 18, 6, 21, 33, 16, 4, 23, 35, 14, 2]
+var count: Int = 0
+
+func euroMax(n: Int) -> Int {
+    var sums: Array<Int> = Array(repeating: 0, count: 100)
+    for i in 0...37-n {
+        var slice: ArraySlice<Int> = european[i...i+n-1]
+        for j in slice {
+            sums[i] += j
+        }
+    }
+    for i in 38-n...36 {
+        var slice1: ArraySlice<Int> = european[i...36]
+        var slice2: ArraySlice<Int> = european[0...n-slice1.count-1]
+        for j in slice1 {
+            sums[i] += j
+        }
+        for k in slice2 {
+            sums[i] += k
+        }
+    }
+    return sums.max()!
+}
+
+func ameriMax(n: Int) -> Int {
+    var sums: Array<Int> = Array(repeating: 0, count: 100)
+    for i in 0...38-n {
+        var slice: ArraySlice<Int> = american[i...i+n-1]
+        for j in slice {
+            sums[i] += j
+        }
+    }
+    for i in 39-n...37 {
+        var slice1: ArraySlice<Int> = american[i...37]
+        var slice2: ArraySlice<Int> = american[0...n-slice1.count-1]
+        for j in slice1 {
+            sums[i] += j
+        }
+        for k in slice2 {
+            sums[i] += k
+        }
+    }
+    return sums.max()!
+}
+
+for n in 2...36 {
+    if euroMax(n: n) < ameriMax(n: n) {
+        count += 1
+    }
+}
+
+print(count) // 9
+
