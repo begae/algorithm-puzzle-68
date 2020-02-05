@@ -1,10 +1,8 @@
 
 var fib: Array<Int> = [1, 1]
-for i in 2...50 {
+for i in 2...90 {
     fib.append(fib[i-1] + fib[i-2])
     }
-
-print(fib)
 
 for j in fib {
     let str = String(j)
