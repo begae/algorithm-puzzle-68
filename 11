@@ -1,0 +1,19 @@
+var fib: Array<Int> = [1, 1]
+for i in 2...50 {
+    fib.append(fib[i-1] + fib[i-2])
+    }
+
+print(fib)
+
+for j in fib {
+    let str = String(j)
+    let digits = str.compactMap{ $0.wholeNumberValue }
+    var div = 0
+    for k in digits {
+        div += k
+    }
+    if j % div == 0 {
+        print(j)
+    }
+}
+
