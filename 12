@@ -1,0 +1,50 @@
+
+import Foundation
+
+func check(arr: Array<Character>) -> Bool {
+    if arr.contains("0") && arr.contains("1") && arr.contains("2") && arr.contains("3") && arr.contains("4") && arr.contains("5") && arr.contains("6") && arr.contains("7") && arr.contains("8") && arr.contains("9") {
+        return true
+    } else {
+        return false
+    }
+}
+
+var num: Double = 2.0
+
+while num < 200 {
+    let root: Double = sqrt(num)
+    let str: String = String(root)
+    var arr: Array<Character> = Array(str)
+    while arr.contains(".") == true {
+        arr.remove(at: 0)
+    }
+    while arr.count > 10 {
+        arr.remove(at: 10)
+    }
+    if check(arr: arr) == true {
+        print(num)
+        break
+    } else {
+        num += 1.0
+    }
+}
+
+while num < 2000 {
+    let root: Double = sqrt(num)
+    let str: String = String(root)
+    var arr: Array<Character> = Array(str)
+    arr.remove(at: arr.firstIndex(of: ".")!)
+    while arr.count > 10 {
+        arr.remove(at: 10)
+    }
+    if check(arr: arr) == true {
+        print(num)
+        break
+    } else {
+        num += 1.0
+    }
+}
+
+// 1362.0
+// 143.0
+
