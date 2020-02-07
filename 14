@@ -1,0 +1,25 @@
+
+let countries: Array<String> = ["brazil", "cameroon", "chile", "greece", "uruguay", "italy", "france", "bosnia and herzegovina", "germany", "usa", "russia", "croatia", "spain", "austrailia", "cote d'ivoire", "costa rica", "switzerland", "honduras", "iran", "portugal", "belgium", "korea republic", "mexico", "netherlands", "colombia", "japan", "england", "ecuador", "argentina", "nigeria", "ghana", "algeria"]
+
+var len: [Int] = []
+var arr: [String] = []
+
+for i in 0...31 {
+    arr.append(countries[i])
+    for j in countries {
+        if j.prefix(1) == arr.last?.suffix(1) && arr.contains(j) == false {
+            arr.append(j)
+        } else {
+            for k in countries {
+                if k.prefix(1) == arr.last?.suffix(1) && arr.contains(k) == false {
+                    arr.append(k)
+                }
+            }
+        }
+    }
+    len.append(arr.count)
+    arr = []
+}
+
+print(len.max()!) // 8
+
