@@ -1,3 +1,4 @@
+
 func collatz_mod(target: Int) -> Bool {
 	var n = target * 3 + 1
 	while n != target {
