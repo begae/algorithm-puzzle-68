@@ -1,0 +1,27 @@
+func collatz_mod(target: Int) -> Bool {
+	var n = target * 3 + 1
+	while n != target {
+		if n % 2 == 1 {
+			if n == 1 {
+				return false
+			} else {
+				n = n * 3 + 1
+			}
+		} else {
+			n /= 2
+		}
+	}
+	return true
+}
+
+var count = 0
+
+for i in 2...10000 {
+	if i % 2 == 0 {
+		if collatz_mod(target: i) == true {
+			count += 1
+		}
+	}
+}
+
+print(count)
